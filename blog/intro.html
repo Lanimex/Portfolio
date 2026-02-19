@@ -40,5 +40,36 @@
     <a href="https://www.linkedin.com/in/sai-abhinav-ledalla-694202253/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:saiabhinavledalla@gmail.com">Email</a>
   </footer>
+
+  <script>
+    // Reading progress indicator
+    const article = document.querySelector('.blog-article');
+    if (article) {
+      const updateProgress = () => {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+        
+        const articleBottom = articleTop + articleHeight;
+        const viewportTop = scrollTop;
+        const viewportBottom = scrollTop + windowHeight;
+        
+        let progress = 0;
+        if (viewportTop < articleBottom && viewportBottom > articleTop) {
+          const visibleTop = Math.max(viewportTop, articleTop);
+          const visibleBottom = Math.min(viewportBottom, articleBottom);
+          const visibleHeight = visibleBottom - visibleTop;
+          progress = (visibleHeight / articleHeight) * 100;
+        }
+        
+        article.style.setProperty('--progress', `${Math.min(100, Math.max(0, progress))}%`);
+      };
+      
+      window.addEventListener('scroll', updateProgress);
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    }
+  </script>
 </body>
 </html>

@@ -11,7 +11,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Highlight active nav section on scroll (hero nav + sidebar)
 const sections = document.querySelectorAll('#bio, #projects, #skills, #interests, #blog, #contact');
-const allNavLinks = document.querySelectorAll('.hero-nav a, .nav-links a');
+const allNavLinks = document.querySelectorAll('.hero-nav a');
 
 function setActiveNav() {
   const scrollY = window.scrollY + 120;
@@ -38,3 +38,24 @@ function setActiveNav() {
 
 window.addEventListener('scroll', setActiveNav);
 setActiveNav();
+
+// Header: add .scrolled when past hero
+const heroHeader = document.querySelector('.hero-header');
+function updateHeaderScrolled() {
+  if (window.scrollY > 80) heroHeader?.classList.add('scrolled');
+  else heroHeader?.classList.remove('scrolled');
+}
+window.addEventListener('scroll', updateHeaderScrolled);
+updateHeaderScrolled();
+
+// Section reveal on scroll
+const sectionEls = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  },
+  { rootMargin: '-40px 0px -60px 0px', threshold: 0 }
+);
+sectionEls.forEach((el) => observer.observe(el));
