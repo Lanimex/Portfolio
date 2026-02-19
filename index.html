@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sai Abhinav Ledalla | Computer Engineering Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section - Full viewport front page -->
+  <section id="hero" class="hero">
+    <div class="starfield"></div>
+    <header class="hero-header">
+      <a href="#hero" class="hero-logo">SL</a>
+      <nav class="hero-nav">
+        <a href="#bio">Bio</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#interests">Interests</a>
+        <a href="blog/">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <div class="hero-content">
+      <h1>Hi, I'm Sai Abhinav Ledalla</h1>
+      <p class="hero-subtitle">Rutgers School of Engineering Class of 2028</p>
+      <p class="hero-contact">Middletown, New Jersey • 732-284-9260 • saiabhinavledalla@gmail.com</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+        <a href="#contact" class="btn btn-filled">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- Sidebar / Nav + Education -->
+    <aside class="sidebar">
+      <div class="logo">SL</div>
+      <nav class="nav-links">
+        <a href="#bio">Bio</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#interests">Interests</a>
+        <a href="blog/">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="education-card">
+        <h3>Education</h3>
+        <p><strong>Rutgers School of Engineering</strong></p>
+        <p>B.S. in <strong>Computer Engineering</strong></p>
+        <p>Expected Graduation: <strong>May 2028</strong></p>
+        <p>GPA: <strong>3.6/4.0</strong></p>
+        <h3 class="subsection-title">Relevant Courses</h3>
+        <ul class="courses-list">
+          <li>ID3EA I &amp; II</li>
+          <li>Data Structures</li>
+          <li>Calculus 3</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Content Sections -->
+    <div class="content">
+      <!-- Bio / Certifications -->
+      <section id="bio" class="section">
+        <h2>Bio</h2>
+        <div class="bio-content">
+          <p>My journey into Computer Engineering began long before I enrolled at Rutgers University. It started at my desk, surrounded by anti-static bags and screwdrivers, trying to figure out exactly which combination of CPU and GPU would squeeze the highest frame rates out of the latest titles. Like many in my generation, I grew up glued to content from creators like Linus Tech Tips, Marques Brownlee (MKBHD), and Gamers Nexus. But for me, it wasn't just about the entertainment—it was research. I was fascinated by the architecture behind the components, obsessing over clock speeds, thermal throttling, and the intricate dance between hardware capability and software optimization.</p>
+          <p>That curiosity drove me to the Rutgers School of Engineering, where I am currently pursuing a degree in Computer Engineering. Here, I've moved from simply assembling components to understanding the logic that powers them. Through coursework in Data Structures, Statics, and Java, I am building a rigorous technical foundation. A recent highlight has been my work on "SmartCat," a Java-based project where I utilized JUnit testing to validate complex logic—a distinct shift from the trial-and-error of my early hobbyist days to the structured problem-solving of a professional engineer.</p>
+          <p>Beyond the classroom, I apply my skills in Game Development on the Roblox platform. This serves as my creative sandbox, where I write scripts in Luau to build interactive gameplay mechanics and design custom 3D assets and clothing in the Roblox Studio environment. This experience has been invaluable in teaching me the user-facing side of software design.</p>
+          <p>Looking forward, my goal is to bridge the gap between my two passions: the raw power of hardware and the versatility of software. I am actively seeking opportunities in Hardware-Software Integration and Software Engineering (SWE), where I can help build the next generation of systems that power the games and tools I grew up admiring.</p>
+        </div>
+        
+        <h3 class="subsection-title">Certifications</h3>
+        <div class="certifications">
+          <div class="cert-card">HackerRank Java Certified</div>
+          <!-- Add more cert cards as needed -->
+        </div>
+      </section>
+
+      <!-- Featured Projects -->
+      <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <p class="section-subtitle">Here are some of my recent projects that showcase my skills and interests.</p>
+        
+        <div class="projects-grid">
+          <div class="project-card">
+            <a href="https://youtu.be/2E_Rhpr-ZtM?si=hjNMAhh578hP2FYY" target="_blank" rel="noopener" class="project-image-wrap">
+              <img src="assets/ru-stealth-preview.png" alt="RU Stealth radar visualization" class="project-image-img" />
+            </a>
+            <h3>RU Stealth</h3>
+            <p class="project-desc">A real-time radar visualization interface designed for precise environmental mapping. Built by integrating Arduino hardware with Processing software via serial communication, this system renders a 360-degree polar coordinate map with persistent object tracking. Features a tactical "heads-up display" (HUD) with dynamic scaling and noise filtration for silent, accurate detection.</p>
+            <div class="tech-tags">
+              <span>Arduino</span><span>C++</span><span>Processing</span><span>Serial Comm</span>
+            </div>
+            <ul class="project-achievements">
+              <li>✓ Real-time 360° omnidirectional scanning</li>
+              <li>✓ Centimeter-level object detection precision</li>
+              <li>✓ Dynamic polar-coordinate rendering</li>
+              <li>✓ Optimized hardware-software data stream</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Anime-Shhh/IEEE-Project" target="_blank" rel="noopener" class="project-link-btn">
+                <svg class="project-link-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="https://youtu.be/2E_Rhpr-ZtM?si=hjNMAhh578hP2FYY" target="_blank" rel="noopener" class="project-link-btn">
+                <svg class="project-link-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                Watch Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Skills -->
+      <section id="skills" class="section">
+        <h2>Technical Skills</h2>
+        <p class="section-subtitle">A comprehensive overview of my technical expertise and capabilities.</p>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Languages</h4>
+            <ul>
+              <li>✓ Python</li>
+              <li>✓ Java</li>
+              <li>✓ JavaScript</li>
+              <li>✓ SQL</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Frameworks</h4>
+            <ul>
+              <li>✓ ReactJS</li>
+              <li>✓ NodeJS</li>
+              <li>✓ Flask</li>
+              <li>✓ PyTorch</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Developer Tools</h4>
+            <ul>
+              <li>✓ Git</li>
+              <li>✓ Docker</li>
+              <li>✓ AWS</li>
+              <li>✓ Linux</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interests -->
+      <section id="interests" class="section">
+        <h2>Interests</h2>
+        <p class="section-subtitle">Beyond the screen and the classroom.</p>
+        <div class="interests-list">
+          <span class="interest-tag">Intramural Sports</span>
+          <span class="interest-tag">Movies</span>
+          <span class="interest-tag">Gaming</span>
+          <span class="interest-tag">Coding</span>
+          <span class="interest-tag">Forums</span>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="section">
+        <h2>Blog</h2>
+        <p class="section-subtitle">Thoughts on software, hardware, and everything in between.</p>
+        
+        <div class="blog-posts blog-preview">
+          <article class="blog-card">
+            <h4>Welcome & Site Under Construction</h4>
+            <p class="blog-date">February 11, 2025</p>
+            <p>Hello and welcome to my personal website! This page is currently under construction and will soon serve as the central hub for my digital assignments and reflections.</p>
+            <a href="blog/intro.html" class="blog-read-link">Read full post →</a>
+          </article>
+          <article class="blog-card">
+            <h4>The Story Behind My New Header</h4>
+            <p class="blog-date">February 12, 2025</p>
+            <p>The process behind the new header image—from finding the right source to multi-layer production.</p>
+            <a href="blog/example-1.html" class="blog-read-link">Read full post →</a>
+          </article>
+          <p class="blog-view-all"><a href="blog/">View all posts →</a></p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <h2>Get in Touch</h2>
+        <p class="section-subtitle">Feel free to reach out for recruitment purposes or even friendly chats.</p>
+        
+        <div class="contact-info">
+          <div class="contact-block">
+            <h4>Contact Information</h4>
+            <p><a href="mailto:saiabhinavledalla@gmail.com">saiabhinavledalla@gmail.com</a></p>
+          </div>
+          <div class="contact-block">
+            <h4>Social Links</h4>
+            <p>
+              <a href="https://github.com/Lanimex" target="_blank" rel="noopener">GitHub</a> • 
+              <a href="https://www.linkedin.com/in/sai-abhinav-ledalla-694202253/" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="https://github.com/Lanimex" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/sai-abhinav-ledalla-694202253/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saiabhinavledalla@gmail.com">Email</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
