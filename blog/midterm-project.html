@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>My Midterm Project | Blog | Sai Abhinav Ledalla</title>
+  <title>RU Stealth: Real-Time Radar Visualization | Blog | Sai Abhinav Ledalla</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +26,8 @@
 
   <article class="blog-article">
     <a href="index.html" class="back-link">← Back to Blog</a>
-    <h1>My Midterm Project</h1>
-    <p class="article-date">March 4, 2025</p>
+    <h1>RU Stealth: Real-Time Radar Visualization</h1>
+    <p class="article-date">March 4, 2026</p>
     <div class="article-body">
       <p>For my midterm I built RU Stealth—a radar system that connects an Arduino and ultrasonic sensor to a live, sweeping display on screen. The video below shows it in action: the hardware pings the room, sends distance data over serial, and Processing draws the radar in real time.</p>
 
@@ -43,8 +43,23 @@
         ></iframe>
       </div>
 
-      <h3>About the Project</h3>
-      <p>RU Stealth is a functional radar system I built using an Arduino, an HC-SR04 ultrasonic sensor, and the Processing IDE to bridge the gap between physical hardware and digital software. The hardware pings its environment using high-frequency sound waves, calculates the distance of nearby objects, and streams that raw data over a serial connection to my computer. A custom software script then parses those data packets and uses trigonometry to render a live, sweeping radar UI that maps out the physical space in real time.</p>
+      <h2>Behind the Scenes: RU Stealth 📡</h2>
+      <p>Here is a quick write-up to accompany my midterm video, <em>RU Stealth: Real-Time Radar Visualization</em>.</p>
+
+      <h3>The Purpose &amp; Audience</h3>
+      <p>I made this walkthrough primarily for recruiters and other computer engineering students. The main goal is to show actual systems engineering in action—specifically the data pipeline and the "handshake" between the hardware and software—rather than just showing off a finished UI.</p>
+
+      <h3>Tools I Used</h3>
+      <p>I utilized a few different tools to put this project and video together:</p>
+      <ul>
+        <li><strong>Arduino IDE:</strong> To process the raw sensor data via the Arduino Uno.</li>
+        <li><strong>Processing:</strong> To create the visualization and display the data in the Processing IDE.</li>
+        <li><strong>Screencast-O-Matic:</strong> To record my screen and capture the walkthrough.</li>
+        <li><strong>Canva:</strong> To design the presentation slides.</li>
+      </ul>
+
+      <h3>Finding the Video &amp; Why It Matters</h3>
+      <p>I am hosting this video on YouTube and embedding it directly on my portfolio. I expect people to find it either by clicking through my resume or by searching for Arduino-to-Processing integration tutorials. It is worth watching because it breaks down the complex logic of real-time data flow, which is much more helpful for building similar systems than just looking at static code.</p>
     </div>
   </article>
 

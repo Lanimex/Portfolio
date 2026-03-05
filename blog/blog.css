@@ -312,6 +312,28 @@
   margin-top: 0;
 }
 
+/* Section heading (e.g. Behind the Scenes) - clear hierarchy above h3 */
+.blog-article .article-body h2 {
+  font-size: clamp(1.75rem, 2.25vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  position: relative;
+  padding-left: 0;
+}
+
+.blog-article .article-body h2:first-of-type {
+  margin-top: 2.5rem;
+}
+
+.blog-article .article-body em {
+  font-style: italic;
+  color: var(--text-primary);
+}
+
 .blog-article .article-body ul {
   margin: 1.5rem 0 2rem;
   padding-left: 0;
@@ -447,12 +469,13 @@
   border-color: var(--border-hover);
 }
 
-/* Responsive YouTube/video embed */
+/* Responsive YouTube/video embed - 16:9, centered, comfortable spacing */
 .video-embed-wrapper {
   position: relative;
   width: 100%;
+  max-width: 640px;
+  margin: 2.5rem auto 2.5rem;
   padding-bottom: 56.25%; /* 16:9 */
-  margin: 2rem 0;
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid var(--border);
