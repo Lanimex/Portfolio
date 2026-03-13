@@ -469,20 +469,23 @@
   border-color: var(--border-hover);
 }
 
-/* Responsive YouTube/video embed - 16:9, centered, comfortable spacing */
+/* Responsive YouTube/video embed - 16:9, centered, adequate padding */
+.video-container,
 .video-embed-wrapper {
   position: relative;
   width: 100%;
   max-width: 640px;
-  margin: 2.5rem auto 2.5rem;
-  padding-bottom: 56.25%; /* 16:9 */
-  border-radius: var(--radius-xl);
+  margin: 3rem auto 3rem;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
   overflow: hidden;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: rgba(15, 15, 15, 0.6);
   box-shadow: var(--shadow-lg);
 }
 
+.video-container iframe,
 .video-embed-wrapper iframe {
   position: absolute;
   top: 0;
