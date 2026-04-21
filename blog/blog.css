@@ -558,3 +558,93 @@
     font-size: 0.8rem;
   }
 }
+
+/* ===== Meme Analysis Sections ===== */
+.meme-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.3s ease;
+}
+
+.meme-section:hover {
+  border-color: var(--border-hover);
+}
+
+.meme-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.meme-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.meme-section p {
+  margin-bottom: 0.75rem;
+}
+
+.meme-section .cite {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.conclusion-section {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(167, 139, 250, 0.04) 100%);
+  border-color: rgba(167, 139, 250, 0.15);
+}
+
+/* Meme Image Figures */
+.meme-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.meme-figure img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.meme-figure img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.meme-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .meme-section {
+    padding: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .meme-section h2 {
+    font-size: 1.25rem;
+  }
+}
