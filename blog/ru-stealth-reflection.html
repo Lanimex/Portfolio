@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Reflection: Engineering Transparency through RU Stealth | Blog | Sai Abhinav Ledalla</title>
+  <meta name="description" content="Reflection on the RU Stealth project, exploring engineering transparency and strategic identity framing.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+  <style>
+    /* Specific animations for this reflection post */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(0, 122, 255, 0.2) 0%, rgba(0, 122, 255, 0) 100%);
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+      animation: highlightSwipe 1.5s ease-out 1s forwards;
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+
+    @keyframes highlightSwipe {
+      to { background-size: 100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="starfield"></div>
+  <header class="hero-header">
+    <a href="../index.html" class="hero-logo">SL</a>
+    <nav class="hero-nav">
+      <a href="../index.html#bio">Bio</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#interests">Interests</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <article class="blog-article">
+    <a href="index.html" class="back-link">← Back to Blog</a>
+    <h1 class="fade-in-up">Reflection: Engineering Transparency through RU Stealth</h1>
+    <p class="article-date fade-in-up delay-1">April 28, 2026</p>
+    <div class="article-body">
+
+      <p class="fade-in-up delay-2">As my time in this course comes to an end, I am looking back at the development of my portfolio and the RU Stealth project. This project was more than just a technical exercise in computer engineering; it was a lesson in how to communicate complex systems to a specific audience of recruiters and fellow developers. Two primary takeaways stand out as I reflect on my progress and the final project.</p>
+
+      <div class="blog-section fade-in-up delay-3">
+        <h2>Making the Invisible Tangible</h2>
+        <p>The most significant lesson I learned is the value of <span class="highlight-text">technical transparency</span>. In engineering, we often treat code like a black box, but this course taught me that "screencasting captures what words can’t". By producing a walkthrough of the RU Stealth data flow, I was able to demonstrate the "tacit aspects" of the hardware-software handshake that a static resume simply cannot convey.</p>
+
+        <p>Specifically, showing the Arduino calculating distance while simultaneously displaying the Processing IDE parsing that data proves a level of systems integration that is difficult to describe in text. This reflects the Shannon and Weaver model of communication, where I acted as the transmitter, encoding physical distance into a digital signal for my audience.</p>
+      </div>
+
+      <div class="blog-section fade-in-up delay-4">
+        <h2>Strategic Identity and Professional Framing</h2>
+        <p>My second major takeaway is how digital media functions as a tool for identity construction. Before this course, I viewed project documentation as a secondary task. However, as Gabriella Coleman discusses, producing media allows individuals to control their own narratives and establish a specific public presence.</p>
+
+        <p>For a computer engineering major, a well-composed video is a strategic move. It frames me as a detail-oriented engineer who understands the underlying physics of a system, not just someone who can copy and paste code. By utilizing the "speaking for itself" heuristic, I established credibility by showing a functional 85% data accuracy metric in real-time. This course has shifted my perspective on how I present my work, ensuring that every project on my site serves a clear, strategic purpose for my future career.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <footer class="footer">
+    <a href="https://github.com/Lanimex" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/sai-abhinav-ledalla-694202253/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saiabhinavledalla@gmail.com">Email</a>
+  </footer>
+
+  <script>
+    // Reading progress indicator
+    const article = document.querySelector('.blog-article');
+    if (article) {
+      const updateProgress = () => {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+
+        const articleBottom = articleTop + articleHeight;
+        const viewportTop = scrollTop;
+        const viewportBottom = scrollTop + windowHeight;
+
+        let progress = 0;
+        if (viewportTop < articleBottom && viewportBottom > articleTop) {
+          const visibleTop = Math.max(viewportTop, articleTop);
+          const visibleBottom = Math.min(viewportBottom, articleBottom);
+          const visibleHeight = visibleBottom - visibleTop;
+          progress = (visibleHeight / articleHeight) * 100;
+        }
+
+        article.style.setProperty('--progress', `${Math.min(100, Math.max(0, progress))}%`);
+      };
+
+      window.addEventListener('scroll', updateProgress);
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    }
+  </script>
+</body>
+</html>
