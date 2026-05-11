@@ -18,7 +18,7 @@
 }
 
 .blog-page {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 7rem 2rem 4rem;
   padding-inline: max(2rem, env(safe-area-inset-left));
@@ -138,7 +138,7 @@
 
 /* Single post page */
 .blog-article {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 7rem 2rem 4rem;
   padding-inline: max(2rem, env(safe-area-inset-left));
@@ -213,8 +213,7 @@
 
 .blog-article .article-body p {
   margin-bottom: 1.75rem;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 }
 
 .blog-article .article-body p:first-of-type {

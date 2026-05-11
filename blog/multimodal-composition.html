@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Project 4: Multimodal Composition — Who Controls What We Remember? | Blog | Sai Abhinav Ledalla</title>
+  <meta name="description" content="An argumentative essay on the subscription economy and cultural memory — how streaming platforms have quietly transferred ownership of our cultural record to private corporations.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+  <style>
+    /* ===== Animations ===== */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Pull Quote — clean card style ===== */
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.75rem 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-lg);
+      font-size: clamp(1rem, 1.15vw, 1.1rem);
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-weight: 400;
+      font-style: normal;
+      position: relative;
+    }
+    .pull-quote .quote-text {
+      font-style: italic;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .pull-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== Argument Section Cards ===== */
+    .argument-section {
+      margin: 3rem 0;
+      padding: 2.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: border-color 0.3s ease;
+    }
+    .argument-section:hover {
+      border-color: var(--border-hover);
+    }
+    .argument-section h2 {
+      font-size: clamp(1.35rem, 2vw, 1.6rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .argument-section h2 .section-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .argument-section p {
+      margin-bottom: 1rem;
+      line-height: 1.85;
+      text-align: left;
+    }
+    .argument-section p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ===== Thesis Callout ===== */
+    .thesis-callout {
+      margin: 2.5rem 0;
+      padding: 2rem 2.25rem;
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(167, 139, 250, 0.04) 100%);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .thesis-callout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), rgba(167, 139, 250, 0.3));
+    }
+    .thesis-callout .callout-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .thesis-callout p {
+      font-size: clamp(1rem, 1.15vw, 1.1rem);
+      line-height: 1.8;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    /* ===== Stat Highlight ===== */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .stat-number {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* ===== Section Divider ===== */
+    .section-divider {
+      margin: 3rem auto;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.3;
+      max-width: 60%;
+    }
+
+    /* ===== Media Figure ===== */
+    .media-figure {
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .media-figure img {
+      width: 100%;
+      max-width: 640px;
+      height: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .media-figure img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .media-figure figcaption {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== Video Embed ===== */
+    .yt-embed {
+      position: relative;
+      width: 100%;
+      margin: 2.5rem auto;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+    .yt-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===== Spotify Embed ===== */
+    .spotify-embed {
+      margin: 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+    .spotify-embed iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    /* ===== Conclusion gradient ===== */
+    .conclusion-section {
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(167, 139, 250, 0.04) 100%);
+      border-color: rgba(167, 139, 250, 0.15);
+    }
+
+    /* ===== Works Cited ===== */
+    .works-cited {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .works-cited h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .works-cited ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .works-cited li {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      text-indent: -2rem;
+    }
+    .works-cited li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .pull-quote {
+        padding: 1.25rem 1.5rem;
+        margin: 2rem 0;
+      }
+      .argument-section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+      .thesis-callout {
+        padding: 1.5rem;
+      }
+      .stat-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="starfield"></div>
+  <header class="hero-header">
+    <a href="../index.html" class="hero-logo">SL</a>
+    <nav class="hero-nav">
+      <a href="../index.html#bio">Bio</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#interests">Interests</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <article class="blog-article">
+    <a href="index.html" class="back-link">← Back to Blog</a>
+    <h1 class="fade-in-up">Project 4: Multimodal Composition</h1>
+    <p class="article-date fade-in-up delay-1">May 11, 2026</p>
+    <div class="article-body">
+
+      <!-- ═══════════════════ HOOK ═══════════════════ -->
+      <p class="fade-in-up delay-2">Open your phone. Press play on any song. Now ask yourself: do you own it? Most people under 30 have never bought a song outright. Not downloaded it, not kept it. iTunes gave way to Spotify. DVD shelves became Netflix queues. Amazon replaced boxes of paperbacks with a monthly fee for Kindle Unlimited. Each trade felt reasonable at the time, more music for less money, thousands of movies in one place. Nobody stopped to ask what was actually being given up. What got given up was ownership. And ownership of media is not just a personal finance question. It is a question about who gets to decide what survives.</p>
+
+      <!-- ═══════════════════ TITLE + THESIS ═══════════════════ -->
+      <h2 class="fade-in-up delay-3">Who Controls What We Remember?</h2>
+      <h3 class="fade-in-up delay-4">The Subscription Economy and Cultural Memory</h3>
+
+      <div class="thesis-callout fade-in-up delay-4">
+        <span class="callout-label">Central Argument</span>
+        <p>The shift from owning media to renting it has quietly transferred control of cultural memory away from individuals and into the hands of a small number of private corporations with every financial reason to change, delete, or restrict what you thought you bought.</p>
+      </div>
+
+      <p>This argument considers how that transfer happened, what it costs us, and whether it can be reversed. The major stakeholders in this story are <strong>consumers</strong>, the <strong>corporations</strong> running streaming platforms (Spotify, Netflix, Amazon, Apple), and the <strong>institutions</strong>  public libraries, digital archivists, the Internet Archive  scrambling to fill the preservation gap that private platforms have no incentive to close.</p>
+
+      <p>The argument here is not that streaming is bad or that physical media was perfect. It is that accessibility and ownership are not the same thing, and a culture that only borrows its own history is entirely at the mercy of whoever holds the lease. Millions of people are already finding this out the hard way: files they paid for, gone. Platforms they trusted, shut down. Music and film that existed last year, simply missing.</p>
+
+      <!-- ═══════════════════ SECTION 1 ═══════════════════ -->
+      <div class="argument-section">
+        <h2><span class="section-icon">🔒</span> The Ownership Illusion</h2>
+
+        <p>The subscription model does not just limit what you can do with media, it strips any claim to ownership entirely and hands it to the platform. This is not a subtle legal fine print problem. Jacobin put it plainly, writing that <em>"transitioning from tangible items to intangible digital copies housed in the cloud has robbed consumers of whatever ownership they might once have claimed over media"</em> ("Digital Ownership and Physical Media"). That word "robbed" is deliberate. It names a transfer of power, not a neutral market shift.</p>
+
+        <p>The loss is concrete. In 2023, customers who had "purchased" movies through Vudu found certain titles quietly removed from their accounts. Microsoft shut down its MSN Music store in 2006, leaving customers holding DRM-locked files they could no longer play. Google Play Music closed in 2020, taking years of uploaded personal libraries with it. The pattern repeats: you pay, the platform closes, the content disappears.</p>
+
+        <blockquote class="pull-quote">
+          <span class="quote-text">"A quorum of twentysomethings across the country did not come together and democratically elect Chappell Roan as this year's new pop star."</span>
+          <cite>Cat Cárdenas, Slate</cite>
+        </blockquote>
+
+        <p>What makes this more than a consumer complaint is what it reveals about the structure of digital culture. When people cannot own media in any real way, the feeling of entitlement gets redirected onto the artist instead. Cat Cardenas, writing in Slate about Chappell Roan's fraught relationship with her fanbase, describes how fans say things like "we made her famous"  as though their streaming numbers gave them a claim on her as a person. But as Cardenas points out, the audience consumed her through a platform that fed her popularity into an algorithm. The subscription model does not just strip ownership from files. It redirects what fans want to possess onto the human being behind the content. That is a symptom of a deeper problem.</p>
+      </div>
+
+      <!-- Image: Streaming vs Physical Media -->
+      <figure class="media-figure">
+        <img src="../assets/streaming-vs-physical.png" alt="Split image comparing the Spotify logo against physical media like vinyl records, cassette tapes, and an iPod" loading="lazy" />
+        <figcaption>Physical collections survived platform shutdowns. Streaming libraries cannot.</figcaption>
+      </figure>
+
+      <hr class="section-divider">
+
+      <!-- ═══════════════════ SECTION 2 ═══════════════════ -->
+      <div class="argument-section">
+        <h2><span class="section-icon">🏢</span> Corporate Custodians Without a Mandate</h2>
+
+        <p>The corporations that have filled the space left by personal ownership have not acted like neutral custodians of culture  and there is no legal reason they should. David French, writing in an opinion column for the New York Times, observes that Big Tech companies, <em>"for all of [their] high-minded rhetoric about making the world a better place and doing no evil, can be just as greedy and grasping as countless other companies in countless other industries"</em> (French).</p>
+
+        <p>French wrote this piece about social media liability, but the argument applies equally in the streaming context. When Spotify decides a song is no longer licensed in your region, or when a platform removes a film during a contract dispute, those decisions happen in a licensing meeting, not with cultural preservation in mind. Algorithms determine what gets promoted and what drifts to the back of the catalog, effectively deciding what gets heard and what gets forgotten.</p>
+
+        <p>The infrastructure now storing most of our collective cultural output  music, film, journalism, and podcasts  is private, profit-driven, and subject to change without notice. No legal obligation exists requiring any of these platforms to keep what you thought you purchased. This is not an abstract risk. It is a structural condition. The same corporations that market themselves as cultural gatekeepers will, when a contract expires or a revenue model shifts, quietly delete the record. French's broader warning about corporate virtue-signaling applies precisely here: the language of access and democratization is real right up until it becomes inconvenient. When it does, the content disappears and the terms of service  which you agreed to  say the platform owes you nothing.</p>
+
+        <!-- YouTube Embed -->
+        <div class="yt-embed">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/T0943YkhLWU?si=zyl1dAq3znOoqG-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ═══════════════════ SECTION 3: COUNTERARGUMENT ═══════════════════ -->
+      <div class="argument-section">
+        <h2><span class="section-icon">⚖️</span> The Accessibility Defense  and Its Limits</h2>
+
+        <p>Subscription platforms deserve a real defense before that defense is taken apart. The accessibility argument is not nothing.</p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-number">600M+</span>
+            <span class="stat-label">Spotify users worldwide</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">270M</span>
+            <span class="stat-label">Netflix households</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">~$0</span>
+            <span class="stat-label">Cost barrier to entry</span>
+          </div>
+        </div>
+
+        <p>A teenager anywhere in the country can hear any album recorded in the last century. That is something physical media never delivered. The costs that once made building a personal music or film library impossible for most people dropped to near zero. Forbes has called subscription-based models <em>"a cornerstone for the industry's future,"</em> and by the numbers, the reach is hard to argue with (Fatemi).</p>
+
+        <p>But accessibility and preservation are not the same. A song that streams today can be removed tomorrow through a licensing dispute, and the listener loses it with no warning or compensation. The library grows and shrinks not based on cultural importance but on contract cycles and platform economics. Accessibility without permanence is just borrowing. A teenager who discovers a film through Netflix and builds their understanding of cinema around it has no guarantee that film exists next year. What they experienced was a loan, not a record.</p>
+
+        <p>The honest version of the pro-subscription argument is that access is better than nothing. That is true. But it does not answer the preservation question, and conflating the two  as the industry routinely does  obscures how much has already been lost.</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ═══════════════════ SECTION 4: ERASURE ═══════════════════ -->
+      <div class="argument-section">
+        <h2><span class="section-icon">🌐</span> The Scale of Digital Erasure</h2>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-number">25%</span>
+            <span class="stat-label">of web pages from 2013–2023 already gone</span>
+          </div>
+        </div>
+
+        <p>The stakes go beyond individual frustration. According to BBC Future, research shows that a quarter of all web pages created between 2013 and 2023 have already disappeared, one in four, in a single decade (BBC Future). The Internet Archive and a small number of digital archivists are working to recover what they can, but they are outpaced by the speed at which platforms shut down or pull content without warning.</p>
+
+        <p>That statistic raises an obvious question: what happens to the cultural record when streaming catalogs age the way websites do? The disappearance is not random. Algorithms and licensing decisions shape which voices get preserved and which ones get dropped. A niche film from a small studio, a podcast from an independent journalist, a piece of music from an artist whose contract lapsed. These are exactly the kinds of cultural artifacts that physical collections once protected and that streaming platforms have no incentive to maintain.</p>
+
+        <p>The 20th century built a durable cultural archive because people kept things. Records on shelves survived the store that sold them. Books outlasted the publisher. A private streaming library cannot make that promise.</p>
+
+        <!-- Spotify Embed -->
+        <div class="spotify-embed">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/4UAplFpPDqE4hWlwsjplgt?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ═══════════════════ SECTION 5: SYNTHESIS ═══════════════════ -->
+      <div class="argument-section">
+        <h2><span class="section-icon">🔗</span> Connected Systems, Connected Failures</h2>
+
+        <p>The ownership illusion, corporate indifference, and digital erasure are not three separate problems. They are the same problem operating at different levels. When Jacobin describes the stripping of digital ownership, when French warns about corporations dressed in the language of public good, and when the BBC reports that a quarter of the web has already vanished, they are all describing the same structural condition: <strong>culture is now stored on private infrastructure with no preservation mandate.</strong></p>
+
+        <p>The Chappell Roan example from Cardenas makes this human. When ownership of media becomes impossible, people redirect that possessive feeling toward artists, toward personalities, toward anything they can claim. That is what a generation raised on subscriptions looks like, not passive, but unable to hold anything. The emotional dynamic Cardenas describes is what happens when the physical, keepable relationship between a person and their cultural record has been replaced by a monthly fee that can end at any time.</p>
+
+        <p>These are connected. The legal condition (you own nothing) produces the cultural condition (you grasp at what you can), and both are driven by the same corporate logic (the platform decides what stays).</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ═══════════════════ CONCLUSION ═══════════════════ -->
+      <div class="argument-section conclusion-section">
+        <h2><span class="section-icon">🏛️</span> Building the Infrastructure We Need</h2>
+
+        <p>The subscription economy made media cheaper and easier to find. It also handed control of cultural memory to companies with no obligation to maintain it. The path forward is not a full return to physical media. What it requires is legal and institutional intervention at the level where the problem actually lives.</p>
+
+        <p>Public libraries have a mandate to lend and preserve books. No equivalent protection exists for digital media. A licensing framework that treated digital purchases as actual purchases, with the right to keep, transfer, and archive what you paid for, would be a starting point. Expanding public funding for institutions like the Internet Archive, which is doing preservation work that private platforms have no financial reason to do, would be another.</p>
+
+        <p>The 20th century built its cultural record because people kept things. The question now is whether we are willing to build that infrastructure for the 21st  and whether we will build it before another quarter of what we made disappears.</p>
+      </div>
+
+      <!-- ═══════════════════ WORKS CITED ═══════════════════ -->
+      <div class="works-cited">
+        <h2>Works Cited</h2>
+        <ul>
+          <li>BBC Future. "The Archivists Battling to Save the Internet." <em>BBC</em>, 12 Sept. 2024, <a href="https://www.bbc.com/future/article/20240912-the-archivists-battling-to-save-the-internet" target="_blank" rel="noopener">www.bbc.com/future/article/20240912-the-archivists-battling-to-save-the-internet</a></li>
+          <li>Cárdenas, Cat. "Chappell Roan Is Trying to Be a New Kind of Pop Star. Will Her Fans Let Her?" <em>Slate</em>, 22 Aug. 2024, <a href="https://slate.com/culture/2024/08/chappell-roan-fan-behavior-pop-star-parasocial-relationships.html" target="_blank" rel="noopener">slate.com/culture/2024/08/chappell-roan-fan-behavior-pop-star-parasocial-relationships.html</a></li>
+          <li>Fatemi, Falon. "Why the Future of Media Is Subscription-Based." <em>Forbes</em>, 13 Dec. 2023, <a href="https://www.forbes.com/sites/falonfatemi/2023/12/13/why-the-future-of-media-is-subscription-based/" target="_blank" rel="noopener">www.forbes.com/sites/falonfatemi/2023/12/13/why-the-future-of-media-is-subscription-based/</a></li>
+          <li>French, David. "Don't Cheer Too Hard for the Facebook Verdicts." <em>The New York Times</em>, 29 Mar. 2026, <a href="https://www.nytimes.com/2026/03/29/opinion/free-speech-social-media-court-ruling.html" target="_blank" rel="noopener">www.nytimes.com/2026/03/29/opinion/free-speech-social-media-court-ruling.html</a></li>
+          <li>Jacobin. "Digital Ownership and Physical Media." <em>Jacobin</em>, Jan. 2025, <a href="https://jacobin.com/2025/01/digital-ownership-physical-media-control" target="_blank" rel="noopener">jacobin.com/2025/01/digital-ownership-physical-media-control</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </article>
+
+  <footer class="footer">
+    <a href="https://github.com/Lanimex" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/sai-abhinav-ledalla-694202253/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saiabhinavledalla@gmail.com">Email</a>
+  </footer>
+
+  <script>
+    // Reading progress indicator
+    const article = document.querySelector('.blog-article');
+    if (article) {
+      const updateProgress = () => {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+
+        const articleBottom = articleTop + articleHeight;
+        const viewportTop = scrollTop;
+        const viewportBottom = scrollTop + windowHeight;
+
+        let progress = 0;
+        if (viewportTop < articleBottom && viewportBottom > articleTop) {
+          const visibleTop = Math.max(viewportTop, articleTop);
+          const visibleBottom = Math.min(viewportBottom, articleBottom);
+          const visibleHeight = visibleBottom - visibleTop;
+          progress = (visibleHeight / articleHeight) * 100;
+        }
+
+        article.style.setProperty('--progress', `${Math.min(100, Math.max(0, progress))}%`);
+      };
+
+      window.addEventListener('scroll', updateProgress);
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    }
+
+    // Intersection Observer for scroll-triggered fade-ins on argument sections
+    const sections = document.querySelectorAll('.argument-section, .thesis-callout, .pull-quote, .media-figure, .yt-embed, .spotify-embed, .section-divider');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
